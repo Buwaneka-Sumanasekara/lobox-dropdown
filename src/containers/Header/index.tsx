@@ -6,26 +6,21 @@ import { convertStrArrayToDropdownItem, filterBySearchTextInDropdown } from '@/u
 
 const Header = () => {
 
-    const [searchText, setSearchText] = useState<string>("");
+  
     const [items, setItems] = useState<DropdownValueType[]>(convertStrArrayToDropdownItem(data) || []);
     const [selectedValue, setSelectedValue] = useState<DropdownValueType | null>(null);
 
 
 
-    const getFilterItems = useCallback((text: string) => {
-        return filterBySearchTextInDropdown(text, items);
-    }, [items]);
 
-    const filteredItems = getFilterItems(searchText);
 
     return (
-        <Dropdown items={filteredItems}
+        <Dropdown items={items}
             onPressItem={(item) => {
                 setSelectedValue(item);
             }}
             selectedValue={selectedValue}
             onSubmit={(item) => setItems([...items, item])}
-            onChangeText={(text) => setSearchText(text)}
         />
     )
 

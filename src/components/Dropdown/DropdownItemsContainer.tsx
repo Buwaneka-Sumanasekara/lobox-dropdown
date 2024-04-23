@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { DropdownValueType } from "@/types/Common";
 import styles from "./dropdown.module.scss";
 type DropdownItemsContainerProps = {
@@ -9,9 +9,18 @@ type DropdownItemsContainerProps = {
 
 const DropdownItemsContainer = (props: DropdownItemsContainerProps) => {
     const { items, selectedItem, onPressItem } = props;
+    const sugViewRef=useRef<HTMLUListElement>(null);
+
+    useEffect(() => {
+        if(sugViewRef.current){
+            sugViewRef.current?.lastElementChild?.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        }
+    }
+    ,[items])
+
     return (
-        <div className={styles.dropdown_suggestions}>
-        <ul>
+        <div className={styles.dropdown_suggestions} >
+        <ul ref={sugViewRef}>
             {items.map((item, index) => {
                 const isSelected = (selectedItem?.key === item.key);
                 return (

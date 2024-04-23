@@ -11,30 +11,24 @@ type DropdownProps = {
     onPressItem: (item: DropdownValueType | null) => void,
     items: DropdownValueType[],
     onSubmit: (item: DropdownValueType) => void
-    onChangeText: (text: string) => void
 }
 
 const Dropdown = (props: DropdownProps) => {
-    const { selectedValue, onPressItem, items, onSubmit, onChangeText } = props;
+    const { selectedValue, onPressItem, items, onSubmit } = props;
     const [isVisibleSuggestions, setIsVisibleSuggestions] = useState<boolean>(true);
     const [searchText, setSearchText] = useState<string>(convertToSearchableText(selectedValue?.value || ""));
 
 
-    useEffect(() => {
-        onChangeText(selectedValue?.value || "");
-    }, [selectedValue, onChangeText])
+
 
     useEffect(() => {
         if (selectedValue) {
             setSearchText(selectedValue?.value || "");
         }
-
     }, [selectedValue])
 
 
-    useEffect(() => {
-        onChangeText(searchText);
-    }, [searchText, onChangeText])
+ 
 
     const onChangeSuggestionVisibility = useCallback((value: boolean) => {
         setIsVisibleSuggestions(value);
