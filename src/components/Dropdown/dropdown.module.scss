@@ -36,44 +36,56 @@
                         }
 
                 }
-                .right_icon{
-                   width: 20px;  
-                   color: $text-color;   
+
+                .right_icon {
+                        width: 20px;
+                        color: $text-color;
                 }
         }
 
+        .dropdown_suggestions {
 
-        ul {
                 background-color: white;
                 border-radius: 20px;
                 margin-top: $padding;
                 overflow: hidden;
-                padding: $padding;
                 border: 1px solid $border-color;
                 -webkit-box-shadow: -4px 3px 8px 0px rgba(199, 193, 199, 0.63);
                 -moz-box-shadow: -4px 3px 8px 0px rgba(199, 193, 199, 0.63);
                 box-shadow: -4px 3px 8px 0px rgba(199, 193, 199, 0.63);
+                
+                ul {
+                        max-height: 200px;
+                        overflow-y: auto;
+                        overflow-x: hidden;
+                        scrollbar-color: $text-color transparent;
+                        scrollbar-width: thin;
+                        scroll-margin-right: 10px;
+                        padding-left: $padding;
+                        padding-right: $padding;
 
-                li {
-                        list-style-type: none;
-                        display: flex;
-                        justify-content: space-between;
-                        flex-direction: row;
-                        padding: $padding;
-                        border-radius: 8px;
-                        font-size: $font-size-md;
-                        color: $text-color;
-                        font-weight: 500;
-                        font-family: $font-family;
-                        cursor: pointer;
+                        li {
+                                list-style-type: none;
+                                display: flex;
+                                justify-content: space-between;
+                                flex-direction: row;
+                                padding: $padding;
+                                border-radius: 8px;
+                                font-size: $font-size-md;
+                                color: $text-color;
+                                font-weight: 500;
+                                font-family: $font-family;
+                                cursor: pointer;
 
-                        &.selected_item {
-                                background-color: $secondary-color;
-                                color: $primary-color;
+                                &.selected_item {
+                                        background-color: $secondary-color;
+                                        color: $primary-color;
+                                }
+
                         }
-
                 }
         }
+
 
 
 }

@@ -10,6 +10,7 @@ type DropdownItemsContainerProps = {
 const DropdownItemsContainer = (props: DropdownItemsContainerProps) => {
     const { items, selectedItem, onPressItem } = props;
     return (
+        <div className={styles.dropdown_suggestions}>
         <ul>
             {items.map((item, index) => {
                 const isSelected = (selectedItem?.key === item.key);
@@ -27,6 +28,7 @@ const DropdownItemsContainer = (props: DropdownItemsContainerProps) => {
             })}
             {items.length===0 && <li key={"no_items"} >- No items found -</li>}
         </ul>
+        </div>
     )
 }
 export default DropdownItemsContainer;
