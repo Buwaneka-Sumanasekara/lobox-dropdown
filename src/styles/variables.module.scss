@@ -1,0 +1,21 @@
+$primary-color: #5384ee;
+$secondary-color: #f3f4ff;
+$border-color:#b8bac2;
+$text-color: #8e949a;
+$font-family:system-ui;
+
+//padding
+$padding-sm:5px;
+$padding:10px;
+$padding-lg:12px;
+
+//font size
+$font-size-sm:12px;
+$font-size-md:14px;
+$font-size-lg:16px;
+
+ 
+:export {
+  primaryColor: $primary-color;
+  text-color:$primary-color  
+}
