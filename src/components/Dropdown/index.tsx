@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import DropdownContainer from './DropdownContainer';
 import DropdownInput from './DropdownInput';
 import DropdownItemsContainer from './DropdownItemsContainer';
-import styles from "./dropdown.module.scss";
+
 import { DropdownValueType } from '@/types/Common';
 import { convertStrToDropdownItem, convertToSearchableText } from '@/utils/utils';
 
@@ -42,7 +42,7 @@ const Dropdown = (props: DropdownProps) => {
     }
 
     return (
-        <DropdownContainer className={styles.dropdown} onClickOutside={() => onChangeSuggestionVisibility(false)}>
+        <DropdownContainer  onClickOutside={() => onChangeSuggestionVisibility(false)}>
             <DropdownInput isVisibleSuggestions={isVisibleSuggestions} setVisibleSuggestions={onChangeSuggestionVisibility} onSubmit={onSubmitText} value={searchText} onChageText={(text) => setSearchText(text)} />
             {isVisibleSuggestions ? <DropdownItemsContainer items={items} selectedItem={selectedValue} onPressItem={onPressItem} /> : null}
         </DropdownContainer>
